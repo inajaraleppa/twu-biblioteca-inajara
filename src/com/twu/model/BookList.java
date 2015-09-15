@@ -17,17 +17,24 @@ public class BookList {
 
     public void addBooks(){
         XMLClass xml = new XMLClass();
-        BooksList.clear();
-        BooksList.addAll(xml.XMLToObject());
+        BooksList = xml.XMLToObject();
     }
 
-    public Book getBookByName(String name){
+    public int getBookByName(String name){
         for (Book book : BooksList) {
             if(book.getName().equals(name)){
-                return book;
+                return BooksList.indexOf(book);
             }
         }
-        return null;
+        return -1;
+    }
+
+    public void checkoutBook(int position){
+        BooksList.get(position).Available = false;
+    }
+
+    public void returnBook(int position){
+        BooksList.get(position).Available = true;
     }
 
 }

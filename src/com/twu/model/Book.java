@@ -19,10 +19,11 @@ public class Book {
 
     public Book(){}
 
-    public Book(String name, String author, String year) {
+    public Book(String name, String author, String year, boolean available) {
         Name = name;
         Author = author;
         Year = year;
+        Available = available;
     }
 
     public boolean getAvaiable(){
@@ -41,11 +42,5 @@ public class Book {
         return Year;
     }
 
-    public void CheckoutBook(){
-        Available = false;
-    }
 
-    public void ReturnBook(){
-        Available = true;
-    }
 }

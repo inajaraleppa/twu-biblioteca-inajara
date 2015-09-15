@@ -16,6 +16,7 @@ public class BibliotecaApp {
     public static BookList books = new BookList();
 
     public static void main(String[] args) {
+        GetBooks();
         ShowHelloWorldMessage();
         ShowMenuOptions();
     }
@@ -51,7 +52,6 @@ public class BibliotecaApp {
 
     public static void SelectMenuOption(String option) {
         if (option.equals(OPTION_MENU_1) || option.equals(OPTION_MENU_4)) {
-            books.addBooks();
             ListBooks();
         } else if (option.equals(OPTION_MENU_2)) {
             CheckOutBook();
@@ -65,14 +65,18 @@ public class BibliotecaApp {
         }
     }
 
-    public static Book GetBook(){
+    public static void GetBooks(){
+        books.addBooks();
+    }
+
+    public static int GetBook(){
         System.out.println("\nType the book name");
         String name = ReadLine();
         return books.getBookByName(name);
     }
 
-    public static boolean BookIsInLibrary(Book book){
-        if(book != null){
+    public static boolean BookIsInLibrary(int position){
+        if(position != -1){
             return true;
         } else {
             return false;
@@ -80,9 +84,9 @@ public class BibliotecaApp {
     }
 
     public static void CheckOutBook() {
-       Book book = GetBook();
-        if(BookIsInLibrary(book)){
-            book.CheckoutBook();
+        int position = GetBook();
+        if(BookIsInLibrary(position)){
+            books.checkoutBook(position);
             System.out.println("\nThank you! Enjoy the book");
         } else {
             System.out.println("\nThat book is not available.");
@@ -91,9 +95,9 @@ public class BibliotecaApp {
     }
 
     public static void ReturnBook(){
-        Book book = GetBook();
-        if(BookIsInLibrary(book)){
-            book.ReturnBook();
+        int position = GetBook();
+        if(BookIsInLibrary(position)){
+            books.returnBook(position);
             System.out.println("\nThank you for returning the book.");
         } else {
             System.out.println("\nThat is not a valid book to return.");
