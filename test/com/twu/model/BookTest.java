@@ -33,34 +33,13 @@ public class BookTest {
     }
 
     @Test
-    public void testSetName() {
-        Book book1 = new Book();
-        book1.setName("The hobbit");
-        assertEquals("The hobbit", book1.getName());
-    }
-
-    @Test
     public void testGetAuthor(){
         assertEquals("markus zusak", book.getAuthor());
     }
 
     @Test
-    public void testSetAuthor() {
-        Book book1 = new Book();
-        book1.setAuthor("J.R.R. Tolkien");
-        assertEquals("J.R.R. Tolkien", book1.getAuthor());
-    }
-
-    @Test
     public void testGetYear() {
         assertEquals("2013", book.getYear());
-    }
-
-    @Test
-    public void testSetYear() {
-        Book book1 = new Book();
-        book1.setYear("2007");
-        assertEquals("2007", book1.getYear());
     }
 
     @Test

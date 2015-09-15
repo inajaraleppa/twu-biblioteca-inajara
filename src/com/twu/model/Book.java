@@ -1,8 +1,9 @@
 package com.twu.model;
 
+import sun.security.x509.AVA;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -14,6 +15,7 @@ public class Book {
     String Name;
     String Author;
     String Year;
+    boolean Available;
 
     public Book(){}
 
@@ -23,28 +25,27 @@ public class Book {
         Year = year;
     }
 
-    public String getName() {
-        return Name;
+    public boolean getAvaiable(){
+        return Available;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public String getName() {
+        return Name;
     }
 
     public String getAuthor() {
         return Author;
     }
 
-    public void setAuthor(String author) {
-        Author = author;
-    }
-
     public String getYear() {
         return Year;
     }
 
-    public void setYear(String year) {
-        Year = year;
+    public void CheckoutBook(){
+        Available = false;
     }
 
+    public void ReturnBook(){
+        Available = true;
+    }
 }
