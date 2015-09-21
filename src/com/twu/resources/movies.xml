@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Movies>
+    <Movie>
+        <Name>The book thief</Name>
+        <Year>2013</Year>
+        <Director></Director>
+        <Rating>6</Rating>
+    </Movie>
+    <Movie>
+        <Name>Mulan</Name>
+        <Year>2003</Year>
+        <Director></Director>
+        <Rating>9</Rating>
+    </Movie>
+    <Movie>
+        <Name>Mogli</Name>
+        <Year>2001</Year>
+        <Director></Director>
+        <Rating>8</Rating>
+    </Movie>
+
+</Movies>

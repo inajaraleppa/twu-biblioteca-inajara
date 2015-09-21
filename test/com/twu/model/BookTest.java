@@ -49,7 +49,7 @@ public class BookTest {
     @Test
     public void testXMLtoObject() {
         XMLClass xml = new XMLClass();
-        List<Book> books1 = xml.XMLToObject();
+        List<Book> books1 = xml.unMarshal("books", Books.class).getBooks();
         assertTrue(books1.size() == books.size());
     }
 
@@ -65,15 +65,15 @@ public class BookTest {
 
     @Test
     public void testCheckoutBook(){
-        booksList.checkoutBook(0);
+        booksList.checkoutItem(0);
         assertFalse(booksList.BooksList.get(0).getAvaiable());
     }
 
     @Test
     public void testReturnBook() {
-        booksList.checkoutBook(1);
+        booksList.checkoutItem(1);
         assertFalse(booksList.BooksList.get(1).getAvaiable());
-        booksList.returnBook(1);
+        booksList.returnItem(1);
         assertTrue(booksList.BooksList.get(1).getAvaiable());
     }
 }
