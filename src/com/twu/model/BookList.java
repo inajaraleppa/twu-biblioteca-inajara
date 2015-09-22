@@ -17,10 +17,6 @@ public class BookList implements LibraryOperations {
         return BooksList;
     }
 
-    public String getSearch(){
-        return search;
-    }
-
     public void addBooks(){
         XMLClass xml = new XMLClass();
         BooksList =  xml.unMarshal("books", Books.class).getBooks();

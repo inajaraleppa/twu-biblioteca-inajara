@@ -15,7 +15,7 @@ public class Movies {
     @XmlElement(name = "Movie")
     private List<Movie> movies = null;
 
-    public List<Movie> getBooks() {
+    public List<Movie> getMovies() {
         return movies;
     }
 

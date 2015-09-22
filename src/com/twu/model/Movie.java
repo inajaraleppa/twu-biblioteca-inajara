@@ -18,11 +18,31 @@ public class Movie {
 
     public Movie(){}
 
-    public Movie(String name, String director, String rating, String year, boolean available) {
+    public Movie(String name, String year, String director, String rating, boolean available) {
         Name = name;
         Director = director;
         Rating = rating;
         Year = year;
         Available = available;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getDirector() {
+        return Director;
+    }
+
+    public String getYear() {
+        return Year;
+    }
+
+    public String getRating() {
+        return Rating;
+    }
+
+    public boolean isAvailable() {
+        return Available;
     }
 }
