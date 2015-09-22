@@ -12,13 +12,20 @@ public class MenuOptions {
     public static final String OPTION_MENU_LIST = "L";
     public static final String OPTION_QUIT = "Quit";
     public static final String OPTION_MENU = "Menu";
+    public static final String OPTION_LOGIN = "Login";
+    public static final String OPTION_LOGOUT = "Logout";
     public static String SELECTED_MENU = "";
 
     public static void ShowMainMenuOptions(){
         System.out.println("--------------");
         System.out.println("Select a option");
-        System.out.println(OPTION_MENU_BOOKS + "- List books ");
-        System.out.println(OPTION_MENU_MOVIES + "- List movies");
+        System.out.println(OPTION_MENU_BOOKS + " - List books ");
+        System.out.println(OPTION_MENU_MOVIES + " - List movies");
+        if(BibliotecaApp.user.isLogged()){
+            System.out.println(OPTION_LOGOUT);
+        } else {
+            System.out.println(OPTION_LOGIN);
+        }
         System.out.println("Type Quit to exit");
 
         GetMenuOption();
@@ -27,10 +34,12 @@ public class MenuOptions {
     public static void ShowMenu(String menu){
         System.out.println("--------------");
         System.out.println("Select a option");
-        System.out.println(OPTION_MENU_CHECKOUT + "- Checkout a " + menu);
-        System.out.println(OPTION_MENU_RETURN + "- Return a " + menu);
-        System.out.println(OPTION_MENU_LIST + "- List Available " + menu);
-        System.out.println(OPTION_MENU + "- Return to main menu");
+        if(BibliotecaApp.user.isLogged()) {
+            System.out.println(OPTION_MENU_CHECKOUT + " - Checkout a " + menu);
+            System.out.println(OPTION_MENU_RETURN + " - Return a " + menu);
+        }
+        System.out.println(OPTION_MENU_LIST + " - List Available " + menu);
+        System.out.println(OPTION_MENU + " - Return to main menu");
         System.out.println("Type Quit to exit");
 
         GetMenuOption();
@@ -64,6 +73,10 @@ public class MenuOptions {
             System.exit(1);
         } else if(option.equals(OPTION_MENU)) {
             ShowMainMenuOptions();
+        } else if(option.equals(OPTION_LOGIN)) {
+            BibliotecaUser.Login();
+        } else if(option.equals(OPTION_LOGOUT)) {
+            BibliotecaUser.Logout();
         } else {
             System.out.println("Select a valid option");
             GetMenuOption();
